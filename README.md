@@ -1,61 +1,35 @@
 # 201911884 응용통계학과 정예원 - 다전공 프로젝트
 
 
-## Introduction
+## I . 다전공 신청 동기
 
-This repository contains a moded version of PyTorch YOLOv5 (https://github.com/ultralytics/yolov5). It filters out every detection that is not a person. The detections of persons are then passed to a Deep Sort algorithm (https://github.com/ZQPei/deep_sort_pytorch) which tracks the persons. The reason behind the fact that it just tracks persons is that the deep association metric is trained on a person ONLY datatset.
+ 2학년 1학기에 응용통계학과 전공강의 '탐색적자료분석'을 듣고 코딩에 흥미를 느꼈습니다. 또한 빅데이터 분석가가 되기 위해서는 통계적 역량 뿐만 아니라, 코딩 역량도 필요하다는 것을 깨달았습니다. 그래서 작년 여름방학에 '점프 투 파이썬(박응용 저)' 교재로 파이썬을 독학했습니다. 교재를 마친 뒤, 이론적 코딩 지식 뿐만 아니라, 코딩 응용능력을 길러야 겠다고 생각했습니다.
 
-## Description
 
-The implementation is based on two papers:
+## II . 프로젝트 구상
 
-- Simple Online and Realtime Tracking with a Deep Association Metric
-https://arxiv.org/abs/1703.07402
-- YOLOv4: Optimal Speed and Accuracy of Object Detection
-https://arxiv.org/pdf/2004.10934.pdf
+저는 지금까지 프로젝트 경험이 없었습니다. 그래서 다전공 신청을 위해 처음으로 프로젝트를 진행해 보았습니다. 사실상 코딩 경력이라곤 ‘점프투파이썬 교재 완독’ 이 전부인 상태였습니다. 파이썬 언어로 구현할 수 있는 것들을 찾아보다가, gui를 알게 되었습니다. 데이터를 바탕으로 컴퓨터와 인간이 소통하게 끔 한다는 점에서 gui가 흥미로웠습니다.
 
-## Requirements
+## III . 프로젝트 과정
 
-Python 3.8 or later with all requirements.txt dependencies installed, including torch>=1.7. To install run:
+-     저의 프로젝트는 (2020. 12. 29 ~ 2021. 01. 14) 약 2주간 걸쳐 진행되었습니다.
 
-`pip install -U -r requirements.txt`
 
-All dependencies are included in the associated docker images. Docker requirements are: 
-- `nvidia-docker`
-- Nvidia Driver Version >= 440.44
+### (1)  프로젝트 전 학습
 
-## Before you run the tracker
+프로젝트를 위해서 유튜브와 책을 통해 파이썬을 다시 공부하고, Gui에 대해 공부했습니다. 하단(V . 프로젝트 중 참고자료 및 공부자료)의 유튜브 영상을 보며 코드를 하나하나 따라치며 파이썬을 상기했습니다. 무엇보다 유튜브 영상의 프로그램들을 보며 “gui 기능을 나의 프로젝트에 어떻게 적용할 수 있을지” 고민하며 공부했습니다.
 
-1. Clone the repository recursively:
 
-`git clone --recurse-submodules https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch.git`
+### (2)  학습 후 프로젝트 과정
 
-If you already cloned and forgot to use `--recurse-submodules` you can run `git submodule update --init`
+#### ①    양식 선택 – radiobutton, button
 
-2. Github block pushes of files larger than 100 MB (https://help.github.com/en/github/managing-large-files/conditions-for-large-files). Hence you need to download two different weights: the ones for yolo and the ones for deep sort
+  우선, 햄버거, 사이드메뉴, 음료 선택부분은 radiobutton으로 설정해 보았습니다. 제가 학습한 양식 중 메뉴 선택에 가장 적절하다고 생각했기 때문입니다. Radiobutton은 첫 화면에 메뉴 전체가 사용자에게 보이게 하고, value값을 지정할 수 있어 주문에 따른 가격 계산을 하는 데 용이할 것이라고 생각했기 때문에 적절하다고 판단했습니다.
 
-- download the yolov5 weight from the latest realease https://github.com/ultralytics/yolov5/releases. Place the downlaoded `.pt` file under `yolov5/weights/`
-- download the deep sort weights from https://drive.google.com/drive/folders/1xhG0kRH1EX5B9_Iz8gQJb7UNnn_riXi6. Place ckpt.t7 file under`deep_sort/deep/checkpoint/`
 
-## Tracking
 
-Tracking can be run on most video formats
-
-```bash
-python3 track.py --source ...
-```
-
-- Video:  `--source file.mp4`
-- Webcam:  `--source 0`
-- RTSP stream:  `--source rtsp://170.93.143.139/rtplive/470011e600ef003a004ee33696235daa`
-- HTTP stream:  `--source http://wmccpinetop.axiscam.net/mjpg/video.mjpg`
-
-MOT compliant results can be saved to `inference/output` by 
-
-```bash
-python3 track.py --source ... --save-txt
-```
-
+  반면,  button은 메뉴 선택보다는 주문실행에 적절하고, checkbox는 값이 0과 1로 지정되어 다양한 메뉴에 각각 다른 값을 부여하는 데 한계가 있다고 판단했습니다. 다만, checkbox는 ‘피클제거’ ‘치즈추가’ 등과 같이 추가적인 요구사항을 체크하는 데 쓰일 수 있겠다고 생각했습니다.
+  
 ## Other information
 
 For more detailed information about the algorithms and their corresponding lisences used in this project access their official github implementations.
