@@ -1,9 +1,5 @@
-# Yolov5 + Deep Sort with PyTorch
+# 201911884 응용통계학과 정예원 - 다전공 프로젝트
 
-[![HitCount](http://hits.dwyl.com/{mikel-brostrom}/{Yolov5_DeepSort_Pytorch}.svg)](http://hits.dwyl.com/{mikel-brostrom}/{Yolov5_DeepSort_Pytorch})
-
-
-![](Town.gif)
 
 ## Introduction
 
